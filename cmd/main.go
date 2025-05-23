@@ -8,6 +8,7 @@ import (
 	"strings"
 	"sync"
 	"web_scanner/internal"
+	"web_scanner/internal/server"
 )
 
 func main() {
@@ -90,4 +91,9 @@ func main() {
 		os.Exit(1)
 	}
 	fmt.Printf("✅ JSON 报告已生成: %s\n", *outFlag)
+	server.StartReportServer("report")
+	server.OpenBrowser("http://localhost:8080")
+
+	// 防止主线程退出
+	select {}
 }

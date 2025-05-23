@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8" />
+    <title>扫描报告</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="资源链接扫描报告，可搜索、过滤、导出结果" />
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="render.js"></script>
+</head>
+<body>
+<h1>📊 扫描报告</h1>
+
+<!-- 搜索框 -->
+<div class="search-bar">
+    <input type="text" id="searchInput" placeholder="输入关键词搜索资源链接..." />
+</div>
+
+<!-- 类型过滤 -->
+<div class="tool-bar" id="filter-bar">
+    <label><input type="checkbox" class="type-filter" value="htmlList" checked> HTML</label>
+    <label><input type="checkbox" class="type-filter" value="jsList" checked> JS</label>
+    <label><input type="checkbox" class="type-filter" value="cssList" checked> CSS</label>
+    <label><input type="checkbox" class="type-filter" value="imageList" checked> Images</label>
+    <label><input type="checkbox" class="type-filter" value="apiList" checked> API</label>
+    <label><input type="checkbox" class="type-filter" value="otherList" checked> Other</label>
+</div>
+
+<!-- 控制按钮 -->
+<div class="tool-bar" id="control-bar">
+    <button onclick="toggleAllSections(true)">展开全部</button>
+    <button onclick="toggleAllSections(false)">收起全部</button>
+    <button onclick="exportLinksTxt()">导出链接 TXT</button>
+    <button onclick="toggleDarkMode()">🌙 黑暗模式</button>
+    <label style="margin-left: 10px;">
+        <input type="checkbox" id="toggleEmpty" checked onchange="applyFilters()"> 显示空资源
+    </label>
+</div>
+
+<!-- 报告容器 -->
+<div id="report-container">加载中...</div>
+</body>
+</html>
